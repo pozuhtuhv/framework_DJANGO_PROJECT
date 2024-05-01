@@ -1,6 +1,3 @@
-# fbv-board
+# Django Test Board
 
-asgiref==3.8.1
-Django==5.0.4
-sqlparse==0.5.0
-tzdata==2024.1
+1. requirements.txt
