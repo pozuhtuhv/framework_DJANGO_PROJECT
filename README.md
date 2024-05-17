@@ -7,4 +7,4 @@ save db : db.sqlite3
 
 
 python manage.py migrate --fake {appname} zero<br>
-python manage.py migrate appname
+python manage.py migrate {appname}
