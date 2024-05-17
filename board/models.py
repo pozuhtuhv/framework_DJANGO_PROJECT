@@ -1,18 +1,16 @@
 from django.db import models
-
-# Create your models here.
 from django.utils import timezone
 
 class Board(models.Model):
-    title = models.CharField(max_length=50) # 제목필드 50자
-    writer = models.CharField(max_length=30) # 작성자필드 30자
-    content = models.TextField() # 내용
-    regdate = models.DateTimeField(auto_now=timezone.now) # 등록시간
-    readcount = models.IntegerField(default=0) # 조회수
+    title = models.CharField(max_length=50)  # 제목 필드, 최대 50자
+    writer = models.CharField(max_length=30)  # 작성자 필드, 최대 30자
+    content = models.TextField()  # 내용 필드
+    regdate = models.DateTimeField(auto_now_add=True)  # 등록 시간, 처음 저장 시에만 설정
+    readcount = models.IntegerField(default=0)  # 조회수, 기본값 0
 
-    def __set__(self):
-        return '%s. %s($d)' % (self.title, self.writer, self.readcount)
-        
-    def incrementReadCount(self):
+    def __str__(self):
+        return f'{self.title}. {self.writer}({self.readcount})'
+
+    def increment_readcount(self):
         self.readcount += 1
         self.save()
