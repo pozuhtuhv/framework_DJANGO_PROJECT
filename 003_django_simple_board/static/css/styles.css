@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: none; /* 경계선을 없앱니다. */
+    border-radius: 4px;
+    font-size: 15px; /* Your name 필드의 폰트 크기 설정 */
+    box-sizing: border-box;
+    background-color: #f5f5f5; /* 배경색을 조정하여 입력 필드가 보이도록 합니다. */
+}
+
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: none; /* 경계선을 없앱니다. */
+    border-radius: 4px;
+    font-size: 18px; /* Your story 필드의 폰트 크기 설정 */
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: #f5f5f5; /* 배경색을 조정하여 입력 필드가 보이도록 합니다. */
+    overflow: hidden; /* 내용을 초과하는 부분을 숨깁니다. */
+    resize: none; /* 크기 조절을 비활성화합니다. */
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+    outline: none; /* 선택되었을 때 검은색 경계선을 없앱니다. */
+}
+
+form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+form .publish-btn {
+    background-color: #333;
+}
+
+form .publish-btn:hover {
+    background-color: #555;
+}
