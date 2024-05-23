@@ -5,5 +5,5 @@
 2. python manage.py runserver
 
 python manage.py migrate --fake {appname} zero<br>
-python manage.py migrate {appname}
+python manage.py migrate {appname}<br>
 python manage.py createsuperuser # admin 계정
