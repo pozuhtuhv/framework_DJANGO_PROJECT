@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 변경: 페이지 상단에서 시작하도록 */
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+.content {
+    text-align: center;
+}
+
+.content img {
+    display: block;
+    margin: 20px auto; /* 변경: 이미지와 주변 요소 사이의 간격을 설정 */
+}
+
+h1 {
+    font-size: 2em;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: none; /* 경계선을 없앱니다. */
+    border-radius: 4px;
+    font-size: 15px; /* Your name 필드의 폰트 크기 설정 */
+    box-sizing: border-box;
+}
+
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: none; /* 경계선을 없앱니다. */
+    border-radius: 4px;
+    font-size: 18px; /* Your story 필드의 폰트 크기 설정 */
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    overflow: hidden; /* 내용을 초과하는 부분을 숨깁니다. */
+    resize: none; /* 크기 조절을 비활성화합니다. */
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+    outline: none; /* 선택되었을 때 검은색 경계선을 없앱니다. */
+}
+
+form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+form .publish-btn {
+    background-color: #333;
+}
+
+form .publish-btn:hover {
+    background-color: #555;
+}

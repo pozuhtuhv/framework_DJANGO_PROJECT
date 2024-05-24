@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+    {% load static custom_tags %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.username }} • {{ post.created_at|date:"F j" }}</p>
+        <div class="content">{{ post.content|parse_content }}</div>
+    </div>
+</body>
+</html>

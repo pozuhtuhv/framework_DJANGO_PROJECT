@@ -5,7 +5,10 @@ http://localhost:8000/ -> 메인 글쓰기<br>
 http://localhost:8000/\<int> -> 글 조회
 
 1. pip install requirements.txt
-2. python manage.py runserver
+2. python manage.py migrate
+3. MySQL -> django_test -> 'Create Table' -> 'board_board' -> 'Create Table' -> 'board_image'
+4. python manage.py runserver
+
 
 python manage.py migrate --fake {appname} zero<br>
 python manage.py migrate {appname}<br>

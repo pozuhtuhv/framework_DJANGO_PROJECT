@@ -4,7 +4,9 @@
 ###### 002_django_basic_board : 기초 보드 폼 구축
 ###### 003_django_simple_board : Just Post Upload / Read
 
-python manage.py migrate<br>
 python manage.py migrate --fake {appname} zero<br>
 python manage.py migrate {appname}<br>
-python manage.py createsuperuser # admin 계정
+python manage.py makemigrations<br>
+python manage.py migrate<br>
+python manage.py createsuperuser # admin 계정<br>
+python manage.py runserver
