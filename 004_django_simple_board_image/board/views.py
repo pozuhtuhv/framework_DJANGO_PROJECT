@@ -19,11 +19,16 @@ def post_detail(request, pk):
 
 def upload_image(request):
     if request.method == 'POST':
-        image_form = ImageForm(request.POST, request.FILES)
-        if image_form.is_valid():
-            image = image_form.save()
+        images = request.FILES.getlist('images')
+        if not images:
+            return JsonResponse({'error': 'No images uploaded'}, status=400)
+
+        image_tags = []
+        for image in images:
+            image_instance = Image(image=image)
+            image_instance.save()
             # 이미지 파일명을 반환
-            return JsonResponse({'image_tag': f'[이미지:{image.image.name}]'})
+            image_tags.append(f'{image_instance.image.name}')
+
+        return JsonResponse({'image_tags': image_tags})
     return JsonResponse({'error': 'Invalid request'}, status=400)
-
-

@@ -20,7 +20,7 @@
                 <textarea name="content" placeholder="Your story..." required style="font-size: 18px;"></textarea>
             </div>
             <div class="form-group">
-                <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                <input type="file" id="image-upload" accept="image/*" style="display: none;" multiple>
                 <button type="button" class="upload-btn" onclick="document.getElementById('image-upload').click();">Image</button>
                 <button type="submit" class="publish-btn">PUBLISH</button>
             </div>
@@ -29,17 +29,19 @@
 
     <script>
         document.getElementById('image-upload').addEventListener('change', function() {
-            var file = this.files[0];
+            var files = this.files;
             var formData = new FormData();
             formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
-            
-            // 파일 유형 검사
-            if (!file.type.startsWith('image/')) {
-                console.error('이미지 파일만 업로드할 수 있습니다.');
-                return;
+
+            // 파일 유형 검사 및 FormData에 파일 추가
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                if (!file.type.startsWith('image/')) {
+                    console.error('이미지 파일만 업로드할 수 있습니다: ' + file.name);
+                    continue;
+                }
+                formData.append('images', file); // 여러 파일을 처리하기 위해 'images' 키 사용
             }
-            
-            formData.append('image', file);
 
             fetch('{% url "upload_image" %}', {
                 method: 'POST',
@@ -47,23 +49,24 @@
             })
             .then(response => response.json())
             .then(data => {
-                if (data.image_tag) {
+                if (data.image_tags) { // 여러 파일 지원을 위해 'image_tags' 사용
                     var textarea = document.querySelector('textarea');
-                    textarea.value += `\n${data.image_tag}\n`;
+                    data.image_tags.forEach(tag => {
+                        textarea.value += `\n[이미지:${tag}]\n`;
+                    });
                     autoResizeTextarea(textarea);
                 } else {
-                    console.error('Failed to upload image:', data.error);
+                    console.error('Failed to upload images:', data.error);
                 }
             })
             .catch(error => {
-                console.error('Error uploading image:', error);
+                console.error('Error uploading images:', error);
             });
         });
 
-        // textarea의 높이를 내용에 맞게 자동으로 조정하는 함수
         function autoResizeTextarea(textarea) {
-            textarea.style.height = 'auto'; // 높이를 초기화하여 스크롤을 제거합니다.
-            textarea.style.height = textarea.scrollHeight + 'px'; // 내용 높이에 맞게 높이를 조정합니다.
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
         }
 
         // 모든 textarea 요소에 대해 이벤트 리스너를 추가합니다.
