@@ -20,7 +20,7 @@
                 <textarea name="content" placeholder="Your story..." required style="font-size: 18px;"></textarea>
             </div>
             <div class="form-group">
-                <input type="file" id="image-upload" style="display: none;">
+                <input type="file" id="image-upload" accept="image/*" style="display: none;">
                 <button type="button" class="upload-btn" onclick="document.getElementById('image-upload').click();">Image</button>
                 <button type="submit" class="publish-btn">PUBLISH</button>
             </div>
@@ -29,9 +29,17 @@
 
     <script>
         document.getElementById('image-upload').addEventListener('change', function() {
+            var file = this.files[0];
             var formData = new FormData();
             formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
-            formData.append('image', this.files[0]);
+            
+            // 파일 유형 검사
+            if (!file.type.startsWith('image/')) {
+                console.error('이미지 파일만 업로드할 수 있습니다.');
+                return;
+            }
+            
+            formData.append('image', file);
 
             fetch('{% url "upload_image" %}', {
                 method: 'POST',

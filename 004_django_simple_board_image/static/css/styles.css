@@ -8,6 +8,10 @@ body {
     height: 100vh;
 }
 
+h1{
+    font-size: 32px;
+}
+
 .container {
     text-align: left;
     width: 300px;
