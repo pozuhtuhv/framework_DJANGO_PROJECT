@@ -11,13 +11,13 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
-                <input type="text" name="title" placeholder="Title" required>
+                <input type="text" name="title" placeholder="Title" required style="font-size: 32px;">
             </div>
             <div class="form-group">
-                <input type="text" name="username" placeholder="Your name" required>
+                <input type="text" name="username" placeholder="Your name" required style="font-size: 15px;">
             </div>
             <div class="form-group">
-                <textarea name="content" placeholder="Your story..." required></textarea>
+                <textarea name="content" placeholder="Your story..." required style="font-size: 18px;"></textarea>
             </div>
             <div class="form-group">
                 <input type="file" id="image-upload" style="display: none;">

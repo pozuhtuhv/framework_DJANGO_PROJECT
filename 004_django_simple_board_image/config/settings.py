@@ -87,6 +87,7 @@ DATABASES = {
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+ALLOWED_HOSTS = ['192.168.25.30']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
