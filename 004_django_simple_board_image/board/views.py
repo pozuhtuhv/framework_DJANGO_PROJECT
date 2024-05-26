@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Board, Image
 from .forms import BoardForm, ImageForm
 
-def post_list(request):
+def post_create(request):
     if request.method == 'POST':
         board_form = BoardForm(request.POST)
         if board_form.is_valid():
@@ -11,7 +11,7 @@ def post_list(request):
             return redirect('post_detail', pk=post.pk)
     else:
         board_form = BoardForm()
-    return render(request, 'board/post_list.html', {'form': board_form})
+    return render(request, 'board/post_create.html', {'form': board_form})
 
 def post_detail(request, pk):
     post = get_object_or_404(Board, pk=pk)
