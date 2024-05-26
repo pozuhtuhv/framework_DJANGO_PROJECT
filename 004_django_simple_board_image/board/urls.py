@@ -7,9 +7,6 @@ from board import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.post_create, name='post_create'),
-    path('<int:pk>/', views.post_detail, name='post_detail'),
+    path('<int:pk>', views.post_detail, name='post_detail'),
     path('upload_image/', views.upload_image, name='upload_image'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

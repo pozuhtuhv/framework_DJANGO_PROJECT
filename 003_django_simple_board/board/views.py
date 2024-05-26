@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Board
+from django.shortcuts import redirect, render
+
 from .forms import BoardForm
+from .models import Board
+
 
 def post_create(request):
     if request.method == 'POST':
@@ -13,5 +15,7 @@ def post_create(request):
     return render(request, 'board/post_create.html', {'form': form})
 
 def post_detail(request, pk):
-    post = get_object_or_404(Board, pk=pk)
+    post = Board.objects.get(pk=id)
+    if not post:
+        return render(request, 'board/404.html')
     return render(request, 'board/post_detail.html', {'post': post})
