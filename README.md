@@ -1,8 +1,10 @@
 # Django_Project
 
-###### 001_django_basic_api : 기초 API 서비스 구축
-###### 002_django_basic_board : 기초 보드 폼 구축
+###### 001_django_basic_api : Basic API
+###### 002_django_basic_board : Basic Form
 ###### 003_django_simple_board : Just Post Upload / Read
+###### 004_django_simple_board_image : Just Image Post Upload / Read
+###### 005_django_error_page : Error_page_connect
 
 http://localhost:8000/ -> 메인 글쓰기<br>
 http://localhost:8000/\<int> -> 글 조회

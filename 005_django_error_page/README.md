@@ -1,5 +1,5 @@
-# 004_django_simple_board_image
-###### Just Image Post Upload / Read
+# 003_Django_Simple_Board
+###### Just Post Upload / Read
 
 http://localhost:8000/ -> 메인 글쓰기<br>
 http://localhost:8000/\<int> -> 글 조회

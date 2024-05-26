@@ -15,7 +15,7 @@ def post_create(request):
     return render(request, 'board/post_create.html', {'form': form})
 
 def post_detail(request, pk):
-    post = Board.objects.get(pk=id)
+    post = Board.objects.get(id=pk)
     if not post:
         return render(request, 'board/404.html')
     return render(request, 'board/post_detail.html', {'post': post})

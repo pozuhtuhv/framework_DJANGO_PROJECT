@@ -1,4 +1,4 @@
-# 003_Django_Simple_Board
+# 003_django_simple_board
 ###### Just Post Upload / Read
 
 http://localhost:8000/ -> 메인 글쓰기<br>

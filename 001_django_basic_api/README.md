@@ -1,5 +1,5 @@
-# 001_Django_Basic_API
-###### 기초 API 서비스 구축
+# 001_django_basic_api
+###### Basic API
 
 1. pip install requirements.txt
 2. python manage.py runserver

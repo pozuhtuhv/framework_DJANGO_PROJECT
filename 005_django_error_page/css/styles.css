@@ -1,0 +1,77 @@
+body {
+    font-family: CustomSansSerif, 'Lucida Grande', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+h1{
+    font-size: 32px;
+}
+
+.container {
+    text-align: left;
+    width: 300px;
+}
+
+.content {
+    text-align: left;
+}
+
+.content img {
+    display: block;
+    margin: 5px auto;
+    max-width: 120%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    overflow: hidden;
+    resize: none;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+    outline: none;
+}
+
+form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+form .publish-btn {
+    background-color: #333;
+}
+
+form .publish-btn:hover {
+    background-color: #555;
+}

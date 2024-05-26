@@ -1,9 +1,7 @@
-from django.http import JsonResponse
-from django.shortcuts import redirect, render
-
-from .forms import BoardForm, ImageForm
+from django.http import JsonResponse, Http404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Board, Image
-
+from .forms import BoardForm, ImageForm
 
 def post_create(request):
     if request.method == 'POST':
@@ -16,14 +14,17 @@ def post_create(request):
     return render(request, 'board/post_create.html', {'form': board_form})
 
 def post_detail(request, pk):
-    post = Board.objects.get(id=pk)
+    try:
+        post = get_object_or_404(Board, id=pk)
+    except Http404:
+        return render(request, '404.html')
     return render(request, 'board/post_detail.html', {'post': post})
 
 def upload_image(request):
     if request.method == 'POST':
         images = request.FILES.getlist('images')
         if not images:
-            return JsonResponse({'error': 'No images uploaded'}, status=400)
+            return JsonResponse({'error': 'No images uploaded'})
 
         image_tags = []
         for image in images:
@@ -33,4 +34,4 @@ def upload_image(request):
             image_tags.append(f'{image_instance.image.name}')
 
         return JsonResponse({'image_tags': image_tags})
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+    return JsonResponse({'error': 'Invalid request'})

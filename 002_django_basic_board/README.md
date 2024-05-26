@@ -1,5 +1,5 @@
-# 002_Django_Basic_Board
-###### 기초 Form 구축
+# 002_django_basic_board
+###### Basic Form
 
 1. pip install requirements.txt
 2. python manage.py runserver

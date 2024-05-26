@@ -1,5 +1,7 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import redirect, render, reverse
+
 from .models import Board
+
 
 def index(request):
     return render(request, 'board/index.html')
@@ -11,8 +13,8 @@ def list(request):
     }
     return render(request, 'board/list.html', context)
 
-def read(request, id):
-    board = Board.objects.get(pk=id)
+def read(request, pk):
+    board = Board.objects.get(id=pk)
     board.incrementReadCount()
     return render(request, 'board/read.html', {'board': board})
 
