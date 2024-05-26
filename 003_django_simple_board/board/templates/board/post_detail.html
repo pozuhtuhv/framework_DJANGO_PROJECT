@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>{{ post.title }}</h1>
-        <p>{{ post.username }}。{{ post.created_at }}</p>
+        <p>{{ post.username }} • {{ post.created_at|date:"F j" }}</p>
         <p>{{ post.content }}</p>
     </div>
 </body>
