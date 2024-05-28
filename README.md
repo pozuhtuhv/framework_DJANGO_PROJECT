@@ -14,9 +14,9 @@ http://localhost:8000/\<int> -> 글 조회
 4. config -> settings.py -> ALLOWED_HOSTS -> 내부아이피 설정
 5. python manage.py runserver
 
+python manage.py createsuperuser # admin 계정<br>
 python manage.py migrate --fake {appname} zero<br>
 python manage.py migrate {appname}<br>
 python manage.py makemigrations<br>
 python manage.py migrate<br>
-python manage.py createsuperuser # admin 계정<br>
 python manage.py runserver 0.0.0.0:8000
