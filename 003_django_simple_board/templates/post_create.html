@@ -27,14 +27,14 @@
     <script>
         // textarea의 높이를 내용에 맞게 자동으로 조정하는 함수
         function autoResizeTextarea(textarea) {
-            textarea.style.height = 'auto'; // 높이를 초기화하여 스크롤을 제거합니다.
-            textarea.style.height = textarea.scrollHeight + 'px'; // 내용 높이에 맞게 높이를 조정합니다.
+            textarea.style.height = 'auto'; // 높이를 초기화하여 스크롤을 제거
+            textarea.style.height = textarea.scrollHeight + 'px'; // 내용 높이에 맞게 높이를 조정
         }
 
-        // 모든 textarea 요소에 대해 이벤트 리스너를 추가합니다.
+        // 모든 textarea 요소에 대해 이벤트 리스너를 추가
         document.querySelectorAll('textarea').forEach(textarea => {
             textarea.addEventListener('input', () => autoResizeTextarea(textarea));
-            // 페이지 로드 시 초기 높이를 설정합니다.
+            // 페이지 로드 시 초기 높이를 설정
             autoResizeTextarea(textarea);
         });
     </script>
